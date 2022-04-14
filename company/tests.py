@@ -7,6 +7,7 @@ def test_get_the_api_response():
     r = requests.get(url)
 
     print(r)
+    print(r.text)
     assert r.status_code == 200
 
 
