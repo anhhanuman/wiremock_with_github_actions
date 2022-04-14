@@ -8,7 +8,7 @@
     },
     "response" : {
       "status" : 200,
-      "body" : "\nhello world",
+      "body" : "hello world",
       "headers" : { }
     },
     "uuid" : "f5d37aa8-e436-491a-8e80-570f55b34d14",
