@@ -4,7 +4,7 @@ services:
   django:
     restart: always
     build: 
-      dockerfile: ./docker/local/Dockerfile
+      dockerfile: ./docker/Dockerfile
       context: .
     environment:
       - DEBUG=1
@@ -16,8 +16,6 @@ services:
       - 8000:8000
     volumes:
       - .:/app
-    depends_on:
-      - db
     command: /usr/local/bin/gunicorn config.wsgi:application -w 2 -b :8000 --reload
 
   wiremock:
@@ -25,3 +23,5 @@ services:
     ports:
       - "8080:8080"
       - "8443:8443"
+    volumes:
+      - ./wiremock:/home/wiremock

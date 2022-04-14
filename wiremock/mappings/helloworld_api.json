@@ -1,0 +1,21 @@
+{
+  "mappings" : [ {
+    "id" : "f5d37aa8-e436-491a-8e80-570f55b34d14",
+    "name" : "hello world",
+    "request" : {
+      "url" : "/helloworld",
+      "method" : "GET"
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "\nhello world from the test api",
+      "headers" : { }
+    },
+    "uuid" : "f5d37aa8-e436-491a-8e80-570f55b34d14",
+    "persistent" : true,
+    "priority" : 5
+  } ],
+  "meta" : {
+    "total" : 1
+  }
+}

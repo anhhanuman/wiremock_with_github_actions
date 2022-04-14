@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.8
 
 ARG APP_USER=appuser
 RUN groupadd -r ${APP_USER} && useradd --no-log-init -r -g ${APP_USER} ${APP_USER}
@@ -10,8 +10,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV DEBUG 0
 
+RUN apt-get update && apt-get install
 RUN apt-get install -y \
-  dos2unix \
   libpq-dev \
   libmariadb-dev-compat \
   libmariadb-dev \
