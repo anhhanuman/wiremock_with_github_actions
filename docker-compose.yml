@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  django:
+    restart: always
+    build: 
+      dockerfile: ./docker/local/Dockerfile
+      context: .
+    environment:
+      - DEBUG=1
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - ENV=DOCKER_LOCAL
+      - PORT=8000
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: /usr/local/bin/gunicorn config.wsgi:application -w 2 -b :8000 --reload
+
+  wiremock:
+    image: wiremock/wiremock
+    ports:
+      - "8080:8080"
+      - "8443:8443"
