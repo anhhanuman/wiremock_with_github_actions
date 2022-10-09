@@ -15,22 +15,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python 3.8
       uses: actions/setup-python@v3
       with:
         python-version: 3.8
-    - name: curl
-      run: sudo apt-get install -y curl
+
     - name: import stubs to wiremock
       run: curl -v -d @./wiremock/mappings/externalapi-stubs.json http://localhost:8080/__admin/mappings/import
+
     - name: install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+
     - name: Run migrations
       run: python manage.py migrate
       env:
         ENV: GITHUB_ACTION_CI
+
     - name: Run tests with pytest
       run: pytest
       env:
