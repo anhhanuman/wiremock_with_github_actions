@@ -21,6 +21,9 @@ jobs:
       with:
         python-version: 3.8
 
+    - name: curl
+      run: sudo apt-get install -y curl
+
     - name: import stubs to wiremock
       run: curl -v -d @./wiremock/mappings/externalapi-stubs.json http://localhost:8080/__admin/mappings/import
 
