@@ -21,7 +21,7 @@ jobs:
         python-version: 3.8
 
     - name: import stubs to wiremock
-      run: curl -v -d @./src/wiremock/mappings/** http://localhost:8080/__admin/mappings/import
+      run: curl -v -d @./src/wiremock/mappings/*.json http://localhost:8080/__admin/mappings/import
 
     - name: install dependencies
       run: |
